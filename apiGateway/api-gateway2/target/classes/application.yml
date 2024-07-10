@@ -1,0 +1,33 @@
+#spring:
+#  application:
+#    name: api-gateway2
+#    
+###GATEWAY CONFIGURATIONS
+#  cloud:
+#   gateway:
+#    routes:
+#    #service1
+#      - id: productservice
+#        uri: lb://PRODUCTSERVICE
+#        predicates:
+#          - Path=/products/**
+        #filters:
+         # - StripPrefix=1
+#        ## Service2
+#      - id: security-service
+#        uri: lb://SECURITY-SERVICE
+#        predicates:
+#          - Path=/security-service/**
+#        filters:
+#          - StripPrefix=1
+  main:
+    web-application-type: reactive        
+
+#server:
+#  port: 8080
+#
+#eureka:
+#  client:
+#    service-url:
+#      defaultZone: http://localhost:8761/eureka
+ 
