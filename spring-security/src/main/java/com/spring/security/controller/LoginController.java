@@ -19,6 +19,7 @@ import org.springframework.security.oauth2.jwt.JwtEncoderParameters;
 import org.springframework.security.oauth2.jwt.NimbusJwtEncoder;
 import org.springframework.validation.BindingResult;
 import org.springframework.validation.FieldError;
+import org.springframework.web.bind.annotation.CrossOrigin;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestBody;
@@ -35,6 +36,7 @@ import com.spring.security.util.Utility;
 import jakarta.validation.Valid;
 
 @RestController
+@CrossOrigin(origins = "*", allowedHeaders = "*")
 public class LoginController {
 
 	@Value("${security.jwt.secret-key}")
@@ -92,7 +94,8 @@ public class LoginController {
 			user.setLastName(signUp.getLastName());
 			user.setUserName(signUp.getUserName());
 			user.setEmail(signUp.getEmail());
-			user.setRole(signUp.getRole());
+			//user.setRole(signUp.getRole());
+			user.setRole("user");
 			user.setCreatedAt(new Date());
 			user.setPassword(bcryptEncoder.encode(signUp.getPassword()));
 
